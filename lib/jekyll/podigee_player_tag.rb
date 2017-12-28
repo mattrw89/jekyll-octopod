@@ -13,8 +13,8 @@ module Jekyll
       { options: {
 
       if theme_config.is_a? Hash
-        theme_config['css'] = config['url'] + theme_config['css'] if theme_config['css'] && !theme_config['css'].start_with? 'http'
-        theme_config['html'] = config['url'] + theme_config['html'] if theme_config['html'] && !theme_config['html'].start_with? 'http'
+        theme_config['css'] = config['url'] + theme_config['css'] if theme_config['css'] && !theme_config['css'].start_with?('http')
+        theme_config['html'] = config['url'] + theme_config['html'] if theme_config['html'] && !theme_config['html'].start_with?('http')
       end
 
       puts "theme_config"
