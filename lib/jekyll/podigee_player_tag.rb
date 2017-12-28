@@ -8,8 +8,12 @@ module Jekyll
       download_url = config["download_url"] || config["url"] + "/episodes"
       page["audio"].each { |key, value| audio[key] = download_url + "/" + value}
 
-      { options: { theme: "default",
-                   startPanel: "ChapterMarks" },
+      theme_config = 'default'
+      theme_config = config['podigee_player']['theme'] if config['podigee_player'] && config['podigee_player']['theme']
+      { options: {
+                    startPanel: "ChapterMarks",
+                    theme: theme_config
+                  },
         extensions: { ChapterMarks: {},
                       EpisodeInfo:  {},
                       Playlist:     {} },
