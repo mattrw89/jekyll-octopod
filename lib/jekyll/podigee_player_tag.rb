@@ -11,6 +11,10 @@ module Jekyll
       theme_config = 'default'
       theme_config = config['podigee_player']['theme'] if config['podigee_player'] && config['podigee_player']['theme']
       { options: {
+      if theme_config.is_a? Hash
+        theme_config['css'] = config['url'] + theme_config['css'] if theme_config['css'] && !theme_config['css'].start_with? 'http'
+        theme_config['html'] = config['url'] + theme_config['html'] if theme_config['html'] && !theme_config['html'].start_with? 'http'
+      end
                     startPanel: "ChapterMarks",
                     theme: theme_config
                   },
